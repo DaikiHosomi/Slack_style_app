@@ -1,15 +1,34 @@
 <template>
     <div class="chat-container">
         <div class="thumbnail-container">
-            <img src="https://pakutaso.cdn.rabify.me/shared/img/thumb/PAK86_kononihonwokae20140713.jpg.webp?d=350"
-                alt="">
+            <img v-bind:src="message.user.thumbnail" />
         </div>
         <div class="message-container">
-            <div class="user-name">daiki0205</div>
-            <div class="message">今日もいい天気ですね</div>
+            <div class="user-name">{{ displayName }}</div>
+            <div class="message">{{ message.text}}</div>
         </div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            message: {
+                text: '今日もいい天気ですね',
+                user: {
+                    thumbnail: 'https://pakutaso.cdn.rabify.me/shared/img/thumb/PAK86_kononihonwokae20140713.jpg.webp?d=350',
+                    name: 'note'
+                }
+            } 
+        }
+    },
+    computed: {
+        displayName() {
+            return "@" + this.message.user.name
+        }
+    }
+}
+</script>
 <style scoped>
 .chat-container {
     display: flex;
