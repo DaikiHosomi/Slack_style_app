@@ -27,7 +27,6 @@ export default {
       querySnapshot.forEach((doc) => {
         this.channels.push({id: doc.id, ...doc.data()})
       })
-      console.log(this.channels)
     })
   }
 }
