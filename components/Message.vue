@@ -1,27 +1,17 @@
 <template>
     <div class="chat-container">
-        <div class="thumbnail-container">
+        <!-- <div class="thumbnail-container">
             <img v-bind:src="message.user.thumbnail" />
-        </div>
+        </div> -->
         <div class="message-container">
-            <div class="user-name">{{ displayName }}</div>
+            <!-- <div class="user-name">{{ displayName }}</div> -->
             <div class="message">{{ message.text}}</div>
         </div>
     </div>
 </template>
 <script>
 export default {
-    data() {
-        return {
-            message: {
-                text: '今日もいい天気ですね',
-                user: {
-                    thumbnail: 'https://pakutaso.cdn.rabify.me/shared/img/thumb/PAK86_kononihonwokae20140713.jpg.webp?d=350',
-                    name: 'note'
-                }
-            } 
-        }
-    },
+    props: ['message'],
     computed: {
         displayName() {
             return "@" + this.message.user.name
